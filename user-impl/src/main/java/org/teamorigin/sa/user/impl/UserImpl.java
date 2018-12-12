@@ -34,6 +34,13 @@ import java.util.concurrent.CompletableFuture;
                 return CompletableFuture.completedFuture(Done.getInstance());
             };
         }
+        @Override
+        public ServiceCall<NotUsed, Done> removeUser(String id) {
 
+            return request ->{
+                userRepository.removeUser(id);
+                return CompletableFuture.completedFuture(Done.getInstance());
+            };
+        }
     }
 

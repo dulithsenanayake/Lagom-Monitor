@@ -32,6 +32,10 @@ public class InMemoryUserRepository implements UserRepository {
     public void addUser(User user) {
         userMap.put(user.getId(),user);
     }
+
+    @Override
+    public void removeUser(String id) { userMap.remove(id);
+    }
 }
 
 

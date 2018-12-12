@@ -16,13 +16,15 @@ public interface UserService extends Service{
 
     public ServiceCall<NotUsed, User> getUserById(String id);
     public ServiceCall<User,Done> addUser();
+    public ServiceCall<NotUsed,Done> removeUser(String id);
 
     @Override
     default Descriptor descriptor() {
         // @formatter:off
         return named("user").withCalls(
                 pathCall("/api/user/:id",  this::getUserById),
-                pathCall("/api/user",  this::addUser)
+                pathCall("/api/user/save",  this::addUser),
+                pathCall("/api/user/delete/:id",  this::removeUser)
         ).withAutoAcl(true);
         // @formatter:on
     }

@@ -8,6 +8,6 @@ public interface UserRepository {
 
     User getUserById(String id);
     void addUser(User user);
-
+    void removeUser(String id);
 }
 
